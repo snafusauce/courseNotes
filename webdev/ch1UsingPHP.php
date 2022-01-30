@@ -79,3 +79,30 @@ You can avoid making a copy by using the reference operator. For example,
 $a = 5;
 $b = &$a;
 $a = 7; // $a and $b are now both 7
+
+The error suppression operator (@) can be used in front of any expression—that is, anything that generates or has a value. For example,
+$a = @(57/0);
+
+testing and setting variables
+string gettype(mixed var);
+bool settype(mixed var, string type);
+lots of functions like this to check the type
+■ is_array()—Checks whether the variable is an array
+
+test if a variable exists
+isset
+
+delete a variable
+unset
+
+check if a variable has a nonzero value
+empty
+
+use colons instead of curly braces
+if ($totalqty == 0) {
+echo "You did not order anything on the previous page!<br />"; exit;
+}
+could be converted to this alternative syntax using the keywords if and endif:
+if ($totalqty == 0) :
+echo "You did not order anything on the previous page!<br />"; exit;
+endif;
