@@ -1,6 +1,8 @@
 #include <fstream> //use this to work with files
 #include <iostream> //use this to use cout and cin
 #include <string> // for strings
+#include <cstdlib> // Needed for the exit function; call exit(0);
+#include <vector>
 using namespace std;
 
 //get input
@@ -96,3 +98,99 @@ void doubleNum(int &);
 
 //&with more than one paramater
 void addThree(int &, int &, int &, int &);
+
+//overloading function means to use the same name for different functions, this is okay as long as the parameters are different
+
+//read values from a file into an array
+// Open the file.
+ifstream inputFile;
+inputFile.open("TenNumbers.txt");
+
+// Read the numbers from the file into the array.
+while(count < ARRAY_SIZE && inputFile >> numbers[count])
+    count++;
+
+// Close the file.
+inputFile.close();
+
+//writing from an array to a file
+ofstream outputFile;
+
+// Open a file for output. 
+outputFile.open("SavedNumbers.txt");
+
+// Write the array contents to the file.
+for (count = 0; count < ARRAY_SIZE; count++)
+outputFile << numbers[count] << endl;
+
+// Close the file. 
+outputFile.close();
+
+//for range for loop, this is just a copy
+for (int val : numbers) 
+    cout << val << endl;
+
+//for range for loop with a reference, not a copy
+// Get values for the array. 
+for (int &val : numbers)
+{
+cout << "Enter an integer value: ";
+cin >> val; }
+
+//arrays are arguments
+void showValues(int nums[], int size)
+//note the array is passed by reference
+
+//contant arrays passed as arguments
+void showValues(const int nums[], int size)
+
+//2d arrays, these are rows by columns
+double scores[3][4];
+
+//example of 2d array
+int hours[3][2] = {
+    {8, 5}, 
+    {7, 9},
+    {6, 3}
+    };
+
+//sum the elements of a 2d array
+// Sum the array elements.
+for (int row = 0; row < NUM_ROWS; row++) {
+    for (int col = 0; col < NUM_COLS; col++) 
+    total += numbers[row][col];
+}
+
+//validation
+while(num >10){
+    cin >> num;
+}
+
+//using vectors; arraylist in java
+vector<int> numbers;
+
+//set a vector's size, and set all the values to something
+vector<int> numbers(10, 2);
+
+//initialize vector with a list of values
+vector<int> numbers { 10, 20, 30, 40 };
+
+//for each loop with refrence variables vector example
+// Get values for the vector elements. 
+for (int &val : numbers)
+{
+cout << "Enter an integer value: ";
+cin >> val; }
+
+//use .pushback to add to a vector if full or without a size
+numbers.push_back(25);
+
+//.size() to get the size of a vector
+
+//use .popback() to remove the last element in a vector
+collection.pop_back();
+
+//use .clear() to clear out a vector
+numbers.clear();
+
+//.empty() to check vector
